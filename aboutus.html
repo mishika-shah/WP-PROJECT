@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AutoSphere | About Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{
+  background:#05070a;
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* GLOW */
+.bg-glow{
+  position:absolute;
+  width:800px;height:800px;
+  background:#00e0ff;
+  filter:blur(220px);
+  opacity:0.12;
+  z-index:0;
+}
+
+/* MAIN BOX */
+.about-container{
+  width:90%;
+  max-width:1300px;
+  background:linear-gradient(180deg,#0b0f14,#070b10);
+  border-radius:30px;
+  box-shadow:0 0 90px rgba(0,224,255,0.25);
+  border:1.5px solid rgba(0,224,255,0.6);
+  padding:70px;
+  position:relative;
+  z-index:2;
+  margin-top:80px;   /* 👈 ADD THIS LINE */
+  margin-bottom:80px;
+}
+
+/* HEADER */
+.about-header{
+  text-align:center;
+  margin-bottom:55px;
+}
+.about-header h1{
+  font-size:48px;
+  font-weight:800;
+  color:#00e0ff;
+  text-shadow:0 0 25px rgba(0,224,255,0.8);
+  letter-spacing:2px;
+}
+.about-header p{
+  margin-top:16px;
+  color:#9bdfff;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+/* SECTIONS */
+.section{
+  margin-bottom:50px;
+}
+.section-title{
+  font-size:30px;
+  font-weight:700;
+  color:#00e0ff;
+  margin-bottom:18px;
+  text-shadow:0 0 15px rgba(0,224,255,0.6);
+}
+.section-text{
+  color:#ddd;
+  font-size:18px;
+  line-height:1.8;
+  max-width:1000px;
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:30px;
+}
+
+.service-card{
+  background:#0b0f14;
+  border-radius:20px;
+  padding:30px;
+  border:1.5px solid #00e0ff;
+  box-shadow:0 0 30px rgba(0,224,255,0.35);
+  transition:0.4s;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 50px rgba(0,224,255,0.8);
+}
+
+.service-title{
+  color:#00e0ff;
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.service-text{
+  font-size:16px;
+  color:#ccc;
+  line-height:1.7;
+}
+
+/* VALUES */
+.values{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+  margin-top:30px;
+}
+
+.value-box{
+  background:#0b0f14;
+  padding:28px;
+  border-radius:18px;
+  border:1px solid rgba(0,224,255,0.6);
+  box-shadow:0 0 25px rgba(0,224,255,0.3);
+  text-align:center;
+}
+.value-box h3{
+  font-size:20px;
+  color:#00ffea;
+  margin-bottom:10px;
+}
+.value-box p{
+  font-size:16px;
+  color:#ccc;
+}
+
+/* FOOTER */
+.about-footer{
+  text-align:center;
+  margin-top:60px;
+  font-size:14px;
+  color:#777;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-container{padding:40px 25px;}
+  .about-header h1{font-size:38px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="about-container">
+
+  <!-- HEADER -->
+  <div class="about-header">
+    <h1>About AutoSphere</h1>
+    <p>Premium Multi-Brand Automobile Showroom Platform</p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="section-title">Who We Are</div>
+    <div class="section-text">
+      AutoSphere is a premium multi-brand automobile showroom platform bringing together the world’s leading car brands
+      under one intelligent digital ecosystem. We redefine how customers discover, compare, and experience vehicles —
+      combining technology, trust, and luxury into one seamless journey.
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <div class="section">
+    <div class="section-title">Our Vision</div>
+    <div class="section-text">
+      To become India’s most trusted and technologically advanced automobile experience platform.
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section">
+    <div class="section-title">Our Services</div>
+
+    <div class="services">
+      <div class="service-card">
+        <div class="service-title">Multi-Brand Car Sales</div>
+        <div class="service-text">Access vehicles from multiple automobile companies on one platform.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Test Drive Booking</div>
+        <div class="service-text">Book demos online with seamless scheduling.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Finance & EMI</div>
+        <div class="service-text">Flexible EMI options, loans, and financing support.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Insurance Services</div>
+        <div class="service-text">Complete vehicle insurance solutions.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Trade-In & Exchange</div>
+        <div class="service-text">Upgrade your vehicle through verified exchange programs.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">After-Sales Support</div>
+        <div class="service-text">Service, maintenance, and customer support systems.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="section">
+    <div class="section-title">Our Core Values</div>
+
+    <div class="values">
+      <div class="value-box">
+        <h3>Trust</h3>
+        <p>Verified listings and transparent systems</p>
+      </div>
+      <div class="value-box">
+        <h3>Innovation</h3>
+        <p>AI-driven smart platform</p>
+      </div>
+      <div class="value-box">
+        <h3>Customer First</h3>
+        <p>Experience before transactions</p>
+      </div>
+      <div class="value-box">
+        <h3>Excellence</h3>
+        <p>Premium service standards</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-footer">
+    © 2026 AutoSphere — Premium Multi-Brand Automobile Platform
+  </div>
+
+</div>
+
+</body>
+</html>

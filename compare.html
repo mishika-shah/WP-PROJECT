@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compare Cars | Your Showroom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:radial-gradient(circle at top,#0b0f14,#05070b,#000);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:60px 20px;
+    color:white;
+}
+
+/* MAIN CONTAINER */
+.compare-container{
+    width:95%;
+    max-width:1400px;
+    background:linear-gradient(180deg,#0b0f14,#070b10);
+    border-radius:30px;
+    border:1.5px solid rgba(0,224,255,0.6);
+    box-shadow:0 0 90px rgba(0,224,255,0.25);
+    padding:60px;
+}
+
+/* TITLE */
+.compare-title{
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    color:#00e0ff;
+    margin-bottom:15px;
+    letter-spacing:1px;
+}
+
+.compare-subtitle{
+    text-align:center;
+    font-size:18px;
+    color:#b8c7d1;
+    margin-bottom:50px;
+}
+
+/* CATEGORY BOXES */
+.category-boxes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-bottom:50px;
+}
+
+.category{
+    background:rgba(8,12,18,0.8);
+    border-radius:20px;
+    border:1.5px solid rgba(0,224,255,0.5);
+    box-shadow:0 0 25px rgba(0,224,255,0.15);
+    padding:30px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.category:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 40px rgba(0,224,255,0.35);
+}
+
+.category h2{
+    font-size:28px;
+    color:#00e0ff;
+    margin-bottom:10px;
+}
+
+.category p{
+    font-size:16px;
+    color:#cfd9df;
+}
+
+/* TABLE */
+.compare-table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 16px;
+}
+
+/* HEADER */
+.compare-table th{
+    font-size:22px;
+    color:#00e0ff;
+    padding:20px;
+    text-align:center;
+}
+
+/* DATA CELLS */
+.compare-table td{
+    background:rgba(8,12,18,0.8);
+    border:1px solid rgba(0,224,255,0.4);
+    padding:18px;
+    text-align:center;
+    font-size:17px;
+    color:#e5f4ff;
+    border-radius:14px;
+}
+
+/* CRITERIA COLUMN (FEATURE) */
+.compare-table .criteria{
+    background:linear-gradient(180deg,#07131a,#040b10);
+    border:2px solid rgba(0,224,255,0.9);
+    color:#00e0ff;
+    font-weight:700;
+    text-align:left;
+    padding-left:25px;
+    letter-spacing:0.5px;
+    box-shadow:0 0 25px rgba(0,224,255,0.35);
+}
+
+/* CTA */
+.compare-btn{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+}
+
+.compare-btn a{
+    text-decoration:none;
+    padding:16px 40px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:600;
+    color:#000;
+    background:#00e0ff;
+    box-shadow:0 0 30px rgba(0,224,255,0.6);
+    transition:0.3s;
+}
+
+.compare-btn a:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 45px rgba(0,224,255,0.9);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .category-boxes{
+        grid-template-columns:1fr;
+    }
+
+    .compare-title{
+        font-size:34px;
+    }
+
+    .compare-table td,
+    .compare-table th{
+        font-size:15px;
+        padding:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="compare-container">
+
+    <div class="compare-title">Compare Car Categories</div>
+    <div class="compare-subtitle">
+        Compare different car segments to choose what fits your lifestyle best
+    </div>
+
+    <!-- CATEGORY CARDS -->
+    <div class="category-boxes">
+        <div class="category">
+            <h2>SUV</h2>
+            <p>Powerful, spacious and perfect for families & long drives</p>
+        </div>
+
+        <div class="category">
+            <h2>Sedan</h2>
+            <p>Comfort, luxury and smooth driving experience</p>
+        </div>
+
+        <div class="category">
+            <h2>Hatchback</h2>
+            <p>Compact, affordable and perfect for city use</p>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <table class="compare-table">
+        <tr>
+            <th>Criteria</th>
+            <th>SUV</th>
+            <th>Sedan</th>
+            <th>Hatchback</th>
+        </tr>
+
+        <tr>
+            <td class="criteria">Price Range</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Low</td>
+        </tr>
+
+        <tr>
+            <td class="criteria">Space</td>
+            <td>Very Spacious</td>
+            <td>Comfortable</td>
+            <td>Compact</td>
+        </tr>
+
+        <tr>
+            <td class="criteria">Best For</td>
+            <td>Family & Travel</td>
+            <td>Office & Comfort</td>
+            <td>City Use</td>
+        </tr>
+
+        <tr>
+            <td class="criteria">Fuel Options</td>
+            <td>Petrol / Diesel / Hybrid</td>
+            <td>Petrol / Diesel</td>
+            <td>Petrol / CNG</td>
+        </tr>
+
+        <tr>
+            <td class="criteria">Maintenance Cost</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Low</td>
+        </tr>
+
+        <tr>
+            <td class="criteria">Road Presence</td>
+            <td>Strong</td>
+            <td>Elegant</td>
+            <td>Minimal</td>
+        </tr>
+    </table>
+
+    <!-- CTA -->
+    <div class="compare-btn">
+        <a href="homepage.html">Explore Cars</a>
+    </div>
+
+</div>
+
+</body>
+</html>

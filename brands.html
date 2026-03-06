@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brands | AutoSphere Showroom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:radial-gradient(circle at top,#0b0f14,#05070b,#000);
+    color:white;
+    padding:80px 20px;
+}
+
+/* MAIN CONTAINER */
+.brands-container{
+    width:95%;
+    max-width:1400px;
+    margin:auto;
+    background:linear-gradient(180deg,#0b0f14,#070b10);
+    border-radius:30px;
+    border:1.5px solid rgba(0,224,255,0.6);
+    box-shadow:0 0 90px rgba(0,224,255,0.25);
+    padding:60px;
+}
+
+/* TITLE */
+.brands-title{
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    color:#00e0ff;
+    letter-spacing:1px;
+    margin-bottom:15px;
+    text-shadow:0 0 15px rgba(0,224,255,0.6);
+}
+
+.brands-subtitle{
+    text-align:center;
+    font-size:18px;
+    color:#b8c7d1;
+    margin-bottom:50px;
+}
+
+/* GRID */
+.brands-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px;
+}
+
+/* BRAND CARD */
+.brand-card{
+    background:rgba(8,12,18,0.85);
+    border-radius:22px;
+    border:1.5px solid rgba(0,224,255,0.5);
+    box-shadow:0 0 30px rgba(0,224,255,0.18);
+    padding:40px 30px;
+    text-align:center;
+    transition:0.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.brand-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(0,224,255,0.15),transparent);
+    opacity:0;
+    transition:0.4s;
+}
+
+.brand-card:hover::before{
+    opacity:1;
+}
+
+.brand-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 50px rgba(0,224,255,0.45);
+}
+
+/* BRAND NAME */
+.brand-name{
+    font-size:28px;
+    font-weight:700;
+    color:#00e0ff;
+    margin-bottom:12px;
+    letter-spacing:1px;
+}
+
+/* TAGLINE */
+.brand-tagline{
+    font-size:15px;
+    color:#d6e6ee;
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+.brand-btn{
+    display:inline-block;
+    padding:12px 30px;
+    border-radius:25px;
+    border:2px solid #00e0ff;
+    color:#00e0ff;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    background:rgba(0,224,255,0.05);
+    box-shadow:0 0 20px rgba(0,224,255,0.4);
+    transition:0.3s;
+}
+
+.brand-btn:hover{
+    background:#00e0ff;
+    color:#05070a;
+    box-shadow:0 0 40px rgba(0,224,255,0.9);
+}
+
+/* FOOTER TEXT */
+.brands-footer{
+    text-align:center;
+    margin-top:60px;
+    font-size:15px;
+    color:#9fb3bf;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .brands-title{
+        font-size:34px;
+    }
+
+    .brands-subtitle{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="brands-container">
+
+    <div class="brands-title">Our Premium Brands</div>
+    <div class="brands-subtitle">
+        Explore the world’s most trusted and luxurious automobile brands under one showroom
+    </div>
+
+    <div class="brands-grid">
+
+        <div class="brand-card">
+            <div class="brand-name">Lexus</div>
+            <div class="brand-tagline">Luxury, innovation & comfort engineering</div>
+            <a href="products.html" class="brand-btn">Explore Lexus</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">Maserati</div>
+            <div class="brand-tagline">Italian performance and elite design</div>
+            <a href="products.html" class="brand-btn">Explore Maserati</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">BMW</div>
+            <div class="brand-tagline">The ultimate driving machine</div>
+            <a href="products.html" class="brand-btn">Explore BMW</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">Mercedes</div>
+            <div class="brand-tagline">Luxury meets performance</div>
+            <a href="products.html" class="brand-btn">Explore Mercedes</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">Volkswagen</div>
+            <div class="brand-tagline">German reliability and innovation</div>
+            <a href="products.html" class="brand-btn">Explore Volkswagen</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">Skoda</div>
+            <div class="brand-tagline">Smart design with premium comfort</div>
+            <a href="products.html" class="brand-btn">Explore Skoda</a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-name">Toyota</div>
+            <div class="brand-tagline">Global trust and long-term reliability</div>
+            <a href="products.html" class="brand-btn">Explore Toyota</a>
+        </div>
+
+    </div>
+
+    <div class="brands-footer">
+        AutoSphere — Multiple Brands. One Premium Experience.
+    </div>
+
+</div>
+
+</body>
+</html>
