@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node auth.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
