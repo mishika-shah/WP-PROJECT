@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Test Drive | AutoSphere</title>
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top,#0a0f1f,#05070a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .testdrive-box {
+      background: rgba(10,15,30,0.92);
+      border-radius: 22px;
+      box-shadow: 0 0 65px rgba(0,224,255,0.25);
+      border: 2.5px solid #00e0ff;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+    }
+    .testdrive-box h2 {
+      margin-bottom: 24px;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .input-group {
+      margin-bottom: 18px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1.3px solid rgba(0,224,255,0.45);
+      background: #05070a;
+      color: white;
+      outline: none;
+      font-size: 16px;
+      box-shadow: inset 0 0 12px rgba(0,224,255,0.18);
+    }
+    .input-group input:focus, .input-group select:focus {
+      box-shadow: 0 0 18px rgba(0,224,255,0.8);
+      border: 1.5px solid #00e0ff;
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(90deg,#00e0ff,#0077ff);
+      color: black;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 16px;
+      box-shadow: 0 0 35px rgba(0,224,255,0.65);
+    }
+    .auth-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 55px rgba(0,224,255,0.95);
+    }
+  </style>
+</head>
+<body>
+  <div style="display:flex;box-shadow:0 0 65px rgba(0,224,255,0.25);border-radius:22px;overflow:hidden;border:2.5px solid #00e0ff;background:rgba(10,15,30,0.92);max-width:1200px;width:95vw;">
+    <!-- Car image section -->
+    <div style="flex:1.5;min-width:420px;max-width:800px;display:flex;align-items:center;justify-content:center;position:relative;">
+      <div style="width:100%;height:520px;max-width:800px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;">
+        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80" alt="Car" style="width:110%;height:520px;object-fit:cover;object-position:center;filter:brightness(0.7) saturate(1.2);">
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,#0a0f1fcc 60%,#00e0ff55 100%);"></div>
+      </div>
+    </div>
+    <!-- Test drive form section -->
+    <div class="testdrive-box" style="box-shadow:none;border:none;background:transparent;max-width:480px;min-width:340px;">
+      <h2>Book a Test Drive</h2>
+      <form id="testdriveForm" autocomplete="off">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}">
+        </div>
+        <div class="input-group">
+          <label for="car">Preferred Car/Model</label>
+          <input type="text" id="car" name="car" required>
+        </div>
+        <div class="input-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="input-group">
+          <label for="time">Preferred Time</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <button type="submit" class="auth-btn">Book Test Drive</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('testdriveForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your test drive has been booked! We will contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
