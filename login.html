@@ -120,33 +120,35 @@ body{
 </style>
 </head>
 
-<body>
-
-<div class="auth-box">
-  <h2>Login to AutoSphere</h2>
-
-  <div class="input-group">
-    <label>Email</label>
-    <input type="email" id="loginEmail" placeholder="Enter your email">
+<body style="background:#fff;">
+  <div style="min-height:100vh;display:flex;align-items:stretch;justify-content:center;">
+    <!-- Left: Car image with overlay -->
+    <div style="flex:1;min-width:340px;max-width:600px;background:linear-gradient(120deg,#b721ff99,#21d4fd99),url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80') center center/cover no-repeat;border-top-left-radius:12px;border-bottom-left-radius:12px;display:flex;align-items:center;justify-content:center;">
+      <!-- Optionally, add a logo or text here -->
+    </div>
+    <!-- Right: Form -->
+    <div style="flex:1;max-width:480px;min-width:340px;background:#fff;display:flex;align-items:center;justify-content:center;border-top-right-radius:12px;border-bottom-right-radius:12px;box-shadow:0 0 40px #0002;">
+      <div class="auth-box" style="width:100%;max-width:370px;padding:40px 32px;margin:0;background:transparent;box-shadow:none;border:none;">
+        <h2 style="color:#b721ff;">Sign In</h2>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="Email address..">
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="************">
+        </div>
+        <button class="auth-btn" style="background:linear-gradient(90deg,#b721ff,#21d4fd);color:#fff;" onclick="login()">Sign in</button>
+        <div class="link-text" style="margin-top:18px;">
+          <a href="signup.html">Create account →</a>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="input-group">
-    <label>Password</label>
-    <input type="password" id="loginPassword" placeholder="Enter your password">
-  </div>
-
-  <button class="auth-btn" onclick="login()">Login</button>
-
-  <div class="link-text">
-    Don’t have an account? <a href="signup.html">Create one</a>
-  </div>
-</div>
-
 <script>
 function login(){
   const email = document.getElementById("loginEmail").value;
   const pass = document.getElementById("loginPassword").value;
-
   if(email==="" || pass===""){
     alert("Please fill all fields");
   }else{
@@ -154,6 +156,5 @@ function login(){
   }
 }
 </script>
-
 </body>
 </html>
