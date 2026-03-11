@@ -1,16 +1,22 @@
 // Delete account endpoint
 
 import express from 'express';
+import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
+
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/wp');
 
+
 const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
@@ -18,17 +24,17 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 // Signup endpoint
 app.post('/signup', async (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password) {
-    return res.status(400).json({ message: 'Username and password required.' });
+  const { name, email, username, password } = req.body;
+  if (!name || !email || !username || !password) {
+    return res.status(400).json({ message: 'All fields are required.' });
   }
   try {
-    const userExists = await User.findOne({ username });
+    const userExists = await User.findOne({ $or: [{ username }, { email }] });
     if (userExists) {
-      return res.status(409).json({ message: 'User already exists.' });
+      return res.status(409).json({ message: 'User with this username or email already exists.' });
     }
     const hashedPassword = bcrypt.hashSync(password, 10);
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ name, email, username, password: hashedPassword });
     await newUser.save();
     res.status(201).json({ message: 'User created successfully.' });
   } catch (err) {

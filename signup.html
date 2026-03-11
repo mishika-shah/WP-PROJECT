@@ -128,7 +128,7 @@ body{
     </div>
   </div>
   <script>
-  function signup(){
+  async function signup() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
@@ -137,16 +137,31 @@ body{
     const terms = document.getElementById("terms").checked;
     if(name===""||email===""||username===""||pass===""||cpass===""){
       alert("Please fill all fields");
+      return;
     }
-    else if(pass!==cpass){
+    if(pass!==cpass){
       alert("Passwords do not match");
+      return;
     }
-    else if(!terms){
+    if(!terms){
       alert("Please agree to the terms");
+      return;
     }
-    else{
-      // Redirect to homepage after signup
-      window.location.href = "homepage.html";
+    try {
+      const response = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, username, password: pass })
+      });
+      const data = await response.json();
+      if (response.ok) {
+        alert("Signup successful! Redirecting to homepage.");
+        window.location.href = "homepage.html";
+      } else {
+        alert(data.message || "Signup failed.");
+      }
+    } catch (err) {
+      alert("Server error. Please try again later.");
     }
   }
   </script>
