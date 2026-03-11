@@ -122,43 +122,45 @@ body{
 
 <body>
   <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at top,#0a0f1f,#05070a);">
-    <!-- Car image section, wider -->
-    <div style="flex:1.3;min-width:420px;max-width:750px;display:flex;align-items:center;justify-content:center;position:relative;">
-      <div style="width:100%;height:540px;max-width:750px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;border-radius:22px 0 0 22px;">
-        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80" alt="Car" style="width:110%;height:540px;object-fit:cover;object-position:center;filter:brightness(0.7) saturate(1.2);border-radius:22px 0 0 22px;">
-        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,#0a0f1fcc 60%,#00e0ff55 100%);border-radius:22px 0 0 22px;"></div>
+    <div style="display:flex;box-shadow:0 0 65px rgba(0,224,255,0.25);border-radius:22px;overflow:hidden;border:2.5px solid #00e0ff;">
+      <!-- Car image section, wider -->
+      <div style="flex:1.3;min-width:420px;max-width:750px;display:flex;align-items:center;justify-content:center;position:relative;">
+        <div style="width:100%;height:540px;max-width:750px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80" alt="Car" style="width:110%;height:540px;object-fit:cover;object-position:center;filter:brightness(0.7) saturate(1.2);">
+          <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,#0a0f1fcc 60%,#00e0ff55 100%);"></div>
+        </div>
       </div>
-    </div>
-    <!-- Signup form section -->
-    <div style="flex:1;max-width:480px;min-width:340px;display:flex;align-items:center;justify-content:center;">
-      <div class="auth-box">
-        <h2>Create AutoSphere Account</h2>
-        <div class="input-group">
-          <label>Full Name</label>
-          <input type="text" id="name" placeholder="Enter your name">
-        </div>
-        <div class="input-group">
-          <label>Email</label>
-          <input type="email" id="email" placeholder="Enter your email">
-        </div>
-        <div class="input-group">
-          <label>Username</label>
-          <input type="text" id="username" placeholder="Enter your username">
-        </div>
-        <div class="input-group">
-          <label>Password</label>
-          <input type="password" id="password" placeholder="Create password">
-        </div>
-        <div class="input-group">
-          <label>Confirm Password</label>
-          <input type="password" id="cpassword" placeholder="Confirm password">
-        </div>
-        <div style="margin:16px 0 8px 0;text-align:left;">
-          <input type="checkbox" id="terms" style="margin-right:8px;"> <label for="terms" style="font-size:13px;color:#00e0ff;">I agree to all Terms of User</label>
-        </div>
-        <button class="auth-btn" onclick="signup()">Sign Up</button>
-        <div class="link-text">
-          Already have an account? <a href="login.html">Login</a>
+      <!-- Signup form section -->
+      <div style="flex:1;max-width:480px;min-width:340px;display:flex;align-items:center;justify-content:center;background:rgba(10,15,30,0.88);">
+        <div class="auth-box" style="box-shadow:none;border:none;background:transparent;">
+          <h2>Create AutoSphere Account</h2>
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+          </div>
+          <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter your username">
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Create password">
+          </div>
+          <div class="input-group">
+            <label>Confirm Password</label>
+            <input type="password" id="cpassword" placeholder="Confirm password">
+          </div>
+          <div style="margin:16px 0 8px 0;text-align:left;">
+            <input type="checkbox" id="terms" style="margin-right:8px;"> <label for="terms" style="font-size:13px;color:#00e0ff;">I agree to all Terms of User</label>
+          </div>
+          <button class="auth-btn" onclick="signup()">Sign Up</button>
+          <div class="link-text">
+            Already have an account? <a href="login.html">Login</a>
+          </div>
         </div>
       </div>
     </div>
