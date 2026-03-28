@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AutoSphere | Lexus Collection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#05070a;
+color:white;
+padding:60px 6%;
+}
+
+/* TITLE */
+
+.page-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.page-title h1{
+font-size:42px;
+color:#00e0ff;
+text-shadow:0 0 20px rgba(0,224,255,0.7);
+}
+
+.page-title p{
+color:#aaa;
+margin-top:10px;
+}
+
+/* FILTER SECTION */
+
+.filters{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:50px;
+flex-wrap:wrap;
+gap:25px;
+
+padding:18px 22px;
+border-radius:18px;
+
+background:#070b10;
+border:1px solid rgba(0,224,255,0.3);
+box-shadow:0 0 25px rgba(0,224,255,0.15);
+}
+
+/* SEARCH BAR */
+
+#searchInput{
+padding:13px 20px;
+border-radius:30px;
+border:1px solid #00e0ff;
+background:#0b0f14;
+color:white;
+width:280px;
+outline:none;
+font-size:14px;
+box-shadow:0 0 12px rgba(0,224,255,0.25);
+transition:0.3s;
+}
+
+#searchInput::placeholder{
+color:#888;
+}
+
+#searchInput:focus{
+box-shadow:0 0 20px rgba(0,224,255,0.5);
+border-color:#00e0ff;
+}
+
+/* PRICE FILTER */
+
+.price-filter{
+display:flex;
+flex-direction:column;
+gap:6px;
+color:#aaa;
+font-size:14px;
+}
+
+#priceSlider{
+width:240px;
+accent-color:#00e0ff;
+cursor:pointer;
+}
+
+/* GRID */
+
+.car-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,300px);
+gap:40px;
+justify-content:center;
+}
+
+/* CARD */
+.car-card{
+
+background:linear-gradient(180deg,#0b0f14,#070b10);
+border-radius:20px;
+border:1px solid rgba(0,224,255,0.6);
+overflow:hidden;
+
+box-shadow:0 0 35px rgba(0,224,255,0.25);
+
+transition:0.3s;
+max-width:420px;
+}
+
+.car-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 50px rgba(0,224,255,0.5);
+}
+
+/* IMAGE */
+
+.car-img img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* CONTENT */
+
+.car-content{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.car-title{
+font-size:22px;
+font-weight:700;
+color:#00e0ff;
+}
+
+.car-info{
+font-size:14px;
+color:#bbb;
+}
+
+.car-price{
+font-size:18px;
+font-weight:700;
+color:#00ff9c;
+margin-top:6px;
+}
+
+/* BUTTON */
+
+.details-btn{
+margin-top:12px;
+padding:12px;
+border-radius:30px;
+border:2px solid #00e0ff;
+background:transparent;
+color:#00e0ff;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+width:100%;
+}
+
+.details-btn:hover{
+background:#00e0ff;
+color:#05070a;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+.page-title h1{
+font-size:30px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page-title">
+<h1>Lexus Luxury Collection</h1>
+<p>Explore the finest Lexus vehicles available at AutoSphere</p>
+</div>
+
+<div class="filters">
+
+<input type="text" id="searchInput" placeholder="Search Lexus models...">
+
+<div class="price-filter">
+<label>Max Price: ₹ <span id="priceValue">300</span>L</label>
+<input type="range" id="priceSlider" min="50" max="300" value="300">
+</div>
+
+</div>
+
+
+<div class="car-grid">
+
+<!-- NX -->
+
+<div class="car-card" data-price="66">
+<div class="car-img">
+<img src="SUV/lsuv1.jpg">
+</div>
+
+<div class="car-content">
+<div class="car-title">Lexus NX</div>
+<div class="car-info">Hybrid Luxury SUV</div>
+<div class="car-price">₹66L</div>
+
+<a href="SUV/NX.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+
+<!-- RX -->
+
+<div class="car-card" data-price="95">
+<div class="car-img">
+<img src="SUV/lsuv2.jpg">
+</div>
+
+<div class="car-content">
+<div class="car-title">Lexus RX</div>
+<div class="car-info">Hybrid Premium SUV</div>
+<div class="car-price">₹95L</div>
+
+<a href="SUV/RX.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+
+<!-- LX -->
+
+<div class="car-card" data-price="290">
+<div class="car-img">
+<img src="SUV/lsuv3.jpg">
+</div>
+
+<div class="car-content">
+<div class="car-title">Lexus LX</div>
+<div class="car-info">Flagship Luxury SUV</div>
+<div class="car-price">₹2.9 Cr</div>
+
+<a href="SUV/LX.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+
+<!-- ES 300h -->
+
+<div class="car-card" data-price="68">
+<div class="car-img">
+<img src="Sedan/lsed1.jpg">
+</div>
+
+<div class="car-content">
+<div class="car-title">Lexus ES 300h</div>
+<div class="car-info">Hybrid Luxury Sedan</div>
+<div class="car-price">₹62L – ₹68L</div>
+
+<a href="Sedan/lsedan.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+
+<!-- LM -->
+
+<div class="car-card" data-price="221">
+<div class="car-img">
+<img src="MPV/lpmv1.jpg">
+</div>
+
+<div class="car-content">
+<div class="car-title">Lexus LM</div>
+<div class="car-info">Ultra Luxury MPV</div>
+<div class="car-price">₹2.1 Cr – ₹2.6 Cr</div>
+
+<a href="MPV/mpv1.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+
+</div>
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const priceSlider = document.getElementById("priceSlider");
+const priceValue = document.getElementById("priceValue");
+const cars = document.querySelectorAll(".car-card");
+
+priceSlider.oninput = function(){
+priceValue.textContent = this.value;
+filterCars();
+}
+
+searchInput.addEventListener("keyup",filterCars);
+function filterCars(){
+
+let searchText = searchInput.value.toLowerCase();
+let maxPrice = Number(priceSlider.value);
+
+cars.forEach(car=>{
+
+let title = car.querySelector(".car-title").textContent.toLowerCase();
+let price = Number(car.getAttribute("data-price"));
+
+if(title.includes(searchText) && price <= maxPrice){
+car.style.display="";
+}else{
+car.style.display="none";
+}
+
+});
+
+}
+
+</script>
+</body>
+</html>
