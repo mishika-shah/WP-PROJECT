@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Test Drive | BMW X5 2026</title>
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top,#0a0f1f,#05070a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .testdrive-box {
+      background: rgba(10,15,30,0.92);
+      border-radius: 22px;
+      box-shadow: 0 0 65px rgba(0,224,255,0.25);
+      border: 2.5px solid #00e0ff;
+      padding: 40px 32px;
+      max-width: 480px;
+      width: 100%;
+    }
+    .testdrive-box h2 {
+      margin-bottom: 24px;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .input-group {
+      margin-bottom: 18px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1.3px solid rgba(0,224,255,0.45);
+      background: #05070a;
+      color: white;
+      outline: none;
+      font-size: 16px;
+      box-shadow: inset 0 0 12px rgba(0,224,255,0.18);
+    }
+    .input-group input:focus {
+      box-shadow: 0 0 18px rgba(0,224,255,0.8);
+      border: 1.5px solid #00e0ff;
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(90deg,#00e0ff,#0077ff);
+      color: black;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 16px;
+      box-shadow: 0 0 35px rgba(0,224,255,0.65);
+    }
+    .auth-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 55px rgba(0,224,255,0.95);
+    }
+    .car-image-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .car-image-box img {
+      width: 100%;
+      max-width: 350px;
+      max-height: 220px;
+      border-radius: 18px;
+      box-shadow: 0 0 40px rgba(0,224,255,0.4);
+      object-fit: cover;
+    }
+    .car-details {
+      margin-bottom: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid #00e0ff44;
+    }
+    .car-details strong {
+      color: #00e0ff;
+      font-size: 1.1em;
+    }
+    .input-group input[readonly] {
+      background: #111827;
+      color: #00e0ff;
+      font-weight: 700;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="testdrive-box">
+    <div class="car-image-box">
+      <img src="https://images.unsplash.com/featured/?bmw,suv" alt="BMW X5 2026">
+    </div>
+    <div class="car-details">
+      <div><strong>Car:</strong> BMW X5 2026</div>
+      <div><strong>Price:</strong> ₹ 95,00,000</div>
+      <div><strong>Engine:</strong> 3.0L Turbo Diesel</div>
+    </div>
+    <h2>Book a Test Drive</h2>
+    <form id="testdriveForm" autocomplete="off">
+      <div class="input-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}">
+      </div>
+      <div class="input-group">
+        <label for="car">Car/Model</label>
+        <input type="text" id="car" name="car" value="BMW X5 2026" readonly>
+      </div>
+      <div class="input-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="input-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+      <button type="submit" class="auth-btn">Book Test Drive</button>
+    </form>
+  </div>
+  <script>
+    // Show car details in console
+    const carDetails = {
+      name: "BMW X5 2026",
+      price: "₹ 95,00,000",
+      engine: "3.0L Turbo Diesel",
+      image: "https://images.unsplash.com/featured/?bmw,suv"
+    };
+    console.log("Car Details:", carDetails);
+
+    document.getElementById('testdriveForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your test drive for ' + carDetails.name + ' has been booked! We will contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
