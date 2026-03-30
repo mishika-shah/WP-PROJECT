@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AutoSphere | Lexus Collection</title>
+<title>AutoSphere | Maserati Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@ padding:60px 6%;
 position:relative;
 }
 
-/* BACKGROUND IMAGE */
 body::before{
 content:"";
 position:fixed;
@@ -35,8 +34,6 @@ background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=8
 opacity:0.12;
 z-index:-1;
 }
-
-/* TITLE */
 
 .page-title{
 text-align:center;
@@ -54,7 +51,6 @@ color:#aaa;
 margin-top:10px;
 }
 
-/* FILTER SECTION */
 .filters{
 display:flex;
 justify-content:center;
@@ -62,16 +58,12 @@ align-items:center;
 margin-bottom:50px;
 flex-wrap:wrap;
 gap:30px;
-
 padding:18px 22px;
 border-radius:18px;
-
 background:#070b10;
 border:1px solid rgba(0,224,255,0.3);
 box-shadow:0 0 25px rgba(0,224,255,0.15);
 }
-
-/* SEARCH BAR */
 
 #searchInput{
 padding:15px 25px;
@@ -83,19 +75,7 @@ width:420px;
 outline:none;
 font-size:15px;
 box-shadow:0 0 15px rgba(0,224,255,0.3);
-transition:0.3s;
 }
-
-#searchInput::placeholder{
-color:#888;
-}
-
-#searchInput:focus{
-box-shadow:0 0 20px rgba(0,224,255,0.5);
-border-color:#00e0ff;
-}
-
-/* PRICE FILTER */
 
 .price-filter{
 display:flex;
@@ -112,8 +92,6 @@ accent-color:#00e0ff;
 cursor:pointer;
 }
 
-/* GRID */
-
 .car-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,300px);
@@ -121,16 +99,12 @@ gap:40px;
 justify-content:center;
 }
 
-/* CARD */
 .car-card{
-
 background:linear-gradient(180deg,#0b0f14,#070b10);
 border-radius:20px;
 border:1px solid rgba(0,224,255,0.6);
 overflow:hidden;
-
 box-shadow:0 0 35px rgba(0,224,255,0.25);
-
 transition:0.3s;
 max-width:420px;
 }
@@ -140,15 +114,11 @@ transform:translateY(-10px);
 box-shadow:0 0 50px rgba(0,224,255,0.5);
 }
 
-/* IMAGE */
-
 .car-img img{
 width:100%;
 height:200px;
 object-fit:cover;
 }
-
-/* CONTENT */
 
 .car-content{
 padding:20px;
@@ -175,8 +145,6 @@ color:#00ff9c;
 margin-top:6px;
 }
 
-/* BUTTON */
-
 .details-btn{
 margin-top:12px;
 padding:12px;
@@ -195,29 +163,19 @@ background:#00e0ff;
 color:#05070a;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:700px){
-
-.page-title h1{
-font-size:30px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="page-title">
-<h1>Lexus Luxury Collection</h1>
-<p>Explore the finest Lexus vehicles available at AutoSphere</p>
+<h1>Maserati Luxury Collection</h1>
+<p>Explore the finest Maserati vehicles available at AutoSphere</p>
 </div>
 
 <div class="filters">
 
-<input type="text" id="searchInput" placeholder="Search Lexus models...">
+<input type="text" id="searchInput" placeholder="Search Maserati models...">
 
 <div class="price-filter">
 <label>Max Price: ₹ <span id="priceValue">300</span>L</label>
@@ -226,103 +184,82 @@ font-size:30px;
 
 </div>
 
-
 <div class="car-grid">
 
-<!-- NX -->
-
-<div class="car-card" data-price="66">
+<!-- Grecale -->
+<div class="car-card" data-price="90">
 <div class="car-img">
-<img src="SUV/lsuv1.jpg">
+<img src="mase1/grecale.jpg">
 </div>
-
 <div class="car-content">
-<div class="car-title">Lexus NX</div>
-<div class="car-info">Hybrid Luxury SUV</div>
-<div class="car-price">₹66L</div>
-
-<a href="SUV/NX.html">
+<div class="car-title">Maserati Grecale</div>
+<div class="car-info">Luxury Compact SUV</div>
+<div class="car-price">₹90L</div>
+<a href="mase1/grecale.html">
 <button class="details-btn">View Details</button>
 </a>
 </div>
 </div>
 
-
-<!-- RX -->
-
-<div class="car-card" data-price="95">
+<!-- MC20 -->
+<div class="car-card" data-price="250">
 <div class="car-img">
-<img src="SUV/lsuv3.jpg">
+<img src="mase2/m2.avif">
 </div>
-
 <div class="car-content">
-<div class="car-title">Lexus RX</div>
-<div class="car-info">Hybrid Premium SUV</div>
-<div class="car-price">₹95L</div>
-
-<a href="SUV/RX.html">
+<div class="car-title">Maserati MC20</div>
+<div class="car-info">Super Sports Car</div>
+<div class="car-price">₹2.5 Cr</div>
+<a href="mase2/mase2.html">
 <button class="details-btn">View Details</button>
 </a>
 </div>
 </div>
 
-
-<!-- LX -->
-
-<div class="car-card" data-price="290">
+<!-- Quattroporte -->
+<div class="car-card" data-price="180">
 <div class="car-img">
-<img src="SUV/lsuv2.jpg">
+<img src="mase3/m3.jpg">
 </div>
-
 <div class="car-content">
-<div class="car-title">Lexus LX</div>
-<div class="car-info">Flagship Luxury SUV</div>
-<div class="car-price">₹2.9 Cr</div>
-
-<a href="SUV/LX.html">
+<div class="car-title">Maserati Quattroporte</div>
+<div class="car-info">Luxury Sedan</div>
+<div class="car-price">₹1.8 Cr</div>
+<a href="mase3/mase3.html">
 <button class="details-btn">View Details</button>
 </a>
 </div>
 </div>
 
-
-<!-- ES 300h -->
-
-<div class="car-card" data-price="68">
+<!-- Levante -->
+<div class="car-card" data-price="150">
 <div class="car-img">
-<img src="Sedan/lsed1.jpg">
+<img src="mase4/m4.avif">
 </div>
-
 <div class="car-content">
-<div class="car-title">Lexus ES 300h</div>
-<div class="car-info">Hybrid Luxury Sedan</div>
-<div class="car-price">₹62L – ₹68L</div>
-
-<a href="Sedan/lsedan.html">
+<div class="car-title">Maserati Levante</div>
+<div class="car-info">Luxury SUV</div>
+<div class="car-price">₹1.5 Cr</div>
+<a href="mase4/mase4.html">
 <button class="details-btn">View Details</button>
 </a>
 </div>
 </div>
 
-
-<!-- LM -->
-
-<div class="car-card" data-price="221">
+<!-- Ghibli -->
+<div class="car-card" data-price="140">
 <div class="car-img">
-<img src="MPV/lpmv1.jpg">
+<img src="mase5/m5.jpg">
 </div>
-
 <div class="car-content">
-<div class="car-title">Lexus LM</div>
-<div class="car-info">Ultra Luxury MPV</div>
-<div class="car-price">₹2.1 Cr – ₹2.6 Cr</div>
-
-<a href="MPV/mpv1.html">
+<div class="car-title">Maserati Ghibli</div>
+<div class="car-info">Sport Luxury Sedan</div>
+<div class="car-price">₹1.4 Cr</div>
+<a href="mase5/mase5.html">
 <button class="details-btn">View Details</button>
 </a>
 </div>
 </div>
-
 
 </div>
 
