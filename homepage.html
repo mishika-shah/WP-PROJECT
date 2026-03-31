@@ -7,8 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+body{
+background:#05070a;
+color:#fff;
+overflow-x:hidden;
+position:relative;
+}
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+/* BACKGROUND IMAGE */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920") center/cover no-repeat;
+opacity:0.12;
+z-index:-1;
+}*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 
 body{
 background:#05070a;
@@ -347,19 +364,17 @@ footer{text-align:center;padding:40px;color:#666;font-size:14px;}
 <div class="nav-item">About Us</div>
 </a>
 </div>
-
-<a href="login.html" class="profile-link">
-<div class="profile">Login / Sign Up</div>
-</a>
-
+<div id="profile-container">
+	<a href="login.html" class="profile-link" id="login-signup-btn">
+		<div class="profile">Login / Sign Up</div>
+	</a>
+	<!-- Profile menu will be injected here if logged in -->
 </div>
-
+</div>
 <div class="search-bar">
 <input type="text" id="searchInput" placeholder="Search by car name, brand, model...">
 </div>
-
 <div class="filter-panel">
-
 <div class="filter-box">
 <label>Model Type</label>
 <select id="model">
@@ -437,15 +452,10 @@ footer{text-align:center;padding:40px;color:#666;font-size:14px;}
 <div class="card"><h3>Secure Platform</h3><p>Safe transactions</p></div>
 </div>
 
-<div class="section-title">What Users Say</div>
 
-<div class="testimonials">
-<div class="testimonial-box">"Found my dream car in minutes!" ⭐⭐⭐⭐⭐</div>
-<div class="testimonial-box">"Premium UI and smooth experience" ⭐⭐⭐⭐⭐</div>
 </div>
 <!-- STATS -->
 <div class="section-title">AutoSphere in Numbers</div>
-
 <div class="stats">
 <div class="card stat-box"><h2 class="counter" data-target="1000">0</h2><p>Cars Listed</p></div>
 <div class="card stat-box"><h2 class="counter" data-target="50">0</h2><p>Dealers</p></div>
@@ -453,7 +463,56 @@ footer{text-align:center;padding:40px;color:#666;font-size:14px;}
 <div class="card stat-box"><h2 class="counter" data-target="1000">0</h2><p>Searches</p></div>
 </div>
 <footer>© 2026 AutoSphere Showroom | Premium Dark UI Concept</footer>
+
 <script>
+
+// Profile menu logic
+async function showProfileMenu(user) {
+	const container = document.getElementById('profile-container');
+	container.innerHTML = `
+		<div class="profile" style="position:relative;cursor:pointer;" id="profileMenuBtn">
+			<span style="font-weight:700;">${user.name}</span> &#x25BC;
+			<div id="profileDropdown" style="display:none;position:absolute;right:0;top:110%;background:#0b0f14;border:1.5px solid #00e0ff;border-radius:12px;padding:18px 28px;min-width:220px;z-index:999;text-align:left;box-shadow:0 0 20px #00e0ff44;">
+				<div style="margin-bottom:10px;"><strong>Name:</strong> ${user.name}</div>
+				<div style="margin-bottom:10px;"><strong>Email:</strong> ${user.email}</div>
+				<div style="margin-bottom:10px;"><strong>Username:</strong> ${user.username}</div>
+				<button id="logoutBtn" style="margin-top:10px;padding:7px 18px;border-radius:8px;border:none;background:#00e0ff;color:#05070a;font-weight:700;cursor:pointer;">Logout</button>
+			</div>
+		</div>
+	`;
+	// Dropdown logic
+	const btn = document.getElementById('profileMenuBtn');
+	const dropdown = document.getElementById('profileDropdown');
+	btn.onclick = (e) => {
+		e.stopPropagation();
+		dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+	};
+	document.body.addEventListener('click', () => { dropdown.style.display = 'none'; });
+	document.getElementById('logoutBtn').onclick = () => {
+		localStorage.removeItem('token');
+		window.location.reload();
+	};
+}
+
+async function checkAuthAndShowProfile() {
+	const token = localStorage.getItem('token');
+	if (!token) return;
+	try {
+		const res = await fetch('http://localhost:3000/me', {
+			headers: { 'Authorization': 'Bearer ' + token }
+		});
+		if (res.ok) {
+			const user = await res.json();
+			showProfileMenu(user);
+		} else {
+			localStorage.removeItem('token');
+		}
+	} catch (e) {
+		// Network error, do nothing
+	}
+}
+
+window.addEventListener('DOMContentLoaded', checkAuthAndShowProfile);
 
 const cars = [
 {name:"BMW X5", brand:"bmw", model:"suv", fuel:"diesel", price:"high", condition:"new", transmission:"auto", img:"https://images.unsplash.com/featured/?bmw,suv"},

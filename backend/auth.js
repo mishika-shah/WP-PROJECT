@@ -60,6 +60,28 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error.' });
   }
 });
+
+// Get current user details endpoint
+app.get('/me', async (req, res) => {
+  const authHeader = req.headers['authorization'];
+  if (!authHeader) {
+    return res.status(401).json({ message: 'No token provided.' });
+  }
+  const token = authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ message: 'No token provided.' });
+  }
+  try {
+    const decoded = jwt.verify(token, 'your_jwt_secret');
+    const user = await User.findOne({ username: decoded.username });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+    res.json({ name: user.name, email: user.email, username: user.username });
+  } catch (err) {
+    res.status(401).json({ message: 'Invalid token.' });
+  }
+});
 app.delete('/delete-account', async (req, res) => {
   const { username } = req.body;
   if (!username) {
