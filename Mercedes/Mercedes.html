@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AutoSphere | Mercedes Collection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#05070a;
+color:white;
+padding:60px 6%;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920") center/cover no-repeat;
+opacity:0.12;
+z-index:-1;
+}
+
+.page-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.page-title h1{
+font-size:42px;
+color:#00e0ff;
+text-shadow:0 0 20px rgba(0,224,255,0.7);
+}
+
+.page-title p{
+color:#aaa;
+margin-top:10px;
+}
+
+.filters{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-bottom:50px;
+flex-wrap:wrap;
+gap:30px;
+padding:18px 22px;
+border-radius:18px;
+background:#070b10;
+border:1px solid rgba(0,224,255,0.3);
+box-shadow:0 0 25px rgba(0,224,255,0.15);
+}
+
+#searchInput{
+padding:15px 25px;
+border-radius:30px;
+border:1px solid #00e0ff;
+background:#0b0f14;
+color:white;
+width:420px;
+outline:none;
+font-size:15px;
+box-shadow:0 0 15px rgba(0,224,255,0.3);
+}
+
+.price-filter{
+display:flex;
+flex-direction:column;
+gap:6px;
+color:#aaa;
+font-size:14px;
+align-items:center;
+}
+
+#priceSlider{
+width:240px;
+accent-color:#00e0ff;
+cursor:pointer;
+}
+
+.car-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,300px);
+gap:40px;
+justify-content:center;
+}
+
+.car-card{
+background:linear-gradient(180deg,#0b0f14,#070b10);
+border-radius:20px;
+border:1px solid rgba(0,224,255,0.6);
+overflow:hidden;
+box-shadow:0 0 35px rgba(0,224,255,0.25);
+transition:0.3s;
+max-width:420px;
+}
+
+.car-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 50px rgba(0,224,255,0.5);
+}
+
+.car-img img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.car-content{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.car-title{
+font-size:22px;
+font-weight:700;
+color:#00e0ff;
+}
+
+.car-info{
+font-size:14px;
+color:#bbb;
+}
+
+.car-price{
+font-size:18px;
+font-weight:700;
+color:#00ff9c;
+margin-top:6px;
+}
+
+.details-btn{
+margin-top:12px;
+padding:12px;
+border-radius:30px;
+border:2px solid #00e0ff;
+background:transparent;
+color:#00e0ff;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+width:100%;
+}
+
+.details-btn:hover{
+background:#00e0ff;
+color:#05070a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page-title">
+<h1>Mercedes Collection</h1>
+<p>Explore the finest Mercedes-Benz vehicles available at AutoSphere</p>
+</div>
+
+<div class="filters">
+
+<input type="text" id="searchInput" placeholder="Search Mercedes models...">
+
+<div class="price-filter">
+<label>Max Price: ₹ <span id="priceValue">300</span>L</label>
+<input type="range" id="priceSlider" min="20" max="300" value="300">
+</div>
+
+</div>
+
+<div class="car-grid">
+
+<!-- C-Class -->
+<div class="car-card" data-price="60">
+<div class="car-img">
+<img src="Coupe/cclass.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes C-Class</div>
+<div class="car-info">Luxury Sedan</div>
+<div class="car-price">₹60L</div>
+<a href="Coupe/cclass.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- SL Roadster -->
+<div class="car-card" data-price="250">
+<div class="car-img">
+<img src="Coupe/slroadster.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes SL Roadster</div>
+<div class="car-info">Convertible Sports</div>
+<div class="car-price">₹250L</div>
+<a href="Coupe/sl.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- Maybach -->
+<div class="car-card" data-price="270">
+<div class="car-img">
+<img src="Limo/maybach.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes Maybach S-Class</div>
+<div class="car-info">Ultra Luxury Sedan</div>
+<div class="car-price">₹270L</div>
+<a href="Limo/maybach.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- S-Class -->
+<div class="car-card" data-price="180">
+<div class="car-img">
+<img src="Limo/sclass.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes S-Class</div>
+<div class="car-info">Flagship Luxury Sedan</div>
+<div class="car-price">₹180L</div>
+<a href="Limo/s-class.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- G-Class -->
+<div class="car-card" data-price="250">
+<div class="car-img">
+<img src="SUV/GCLASS.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes G-Class</div>
+<div class="car-info">Luxury Off-Road SUV</div>
+<div class="car-price">₹250L</div>
+<a href="SUV/gclass.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- GLA -->
+<div class="car-card" data-price="50">
+<div class="car-img">
+<img src="SUV/GLA.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes GLA</div>
+<div class="car-info">Compact Luxury SUV</div>
+<div class="car-price">₹50L</div>
+<a href="SUV/gla.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- GLC -->
+<div class="car-card" data-price="70">
+<div class="car-img">
+<img src="SUV/GLC.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes GLC</div>
+<div class="car-info">Mid-size Luxury SUV</div>
+<div class="car-price">₹70L</div>
+<a href="SUV/glc.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- GLE -->
+<div class="car-card" data-price="95">
+<div class="car-img">
+<img src="SUV/GLE.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes GLE</div>
+<div class="car-info">Premium Luxury SUV</div>
+<div class="car-price">₹95L</div>
+<a href="SUV/gle.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+<!-- GLS -->
+<div class="car-card" data-price="130">
+<div class="car-img">
+<img src="SUV/GLS.jpg">
+</div>
+<div class="car-content">
+<div class="car-title">Mercedes GLS</div>
+<div class="car-info">Luxury 7-Seater SUV</div>
+<div class="car-price">₹130L</div>
+<a href="SUV/gls.html">
+<button class="details-btn">View Details</button>
+</a>
+</div>
+</div>
+
+</div>
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const priceSlider = document.getElementById("priceSlider");
+const priceValue = document.getElementById("priceValue");
+const cars = document.querySelectorAll(".car-card");
+
+priceSlider.oninput = function(){
+priceValue.textContent = this.value;
+filterCars();
+}
+
+searchInput.addEventListener("keyup",filterCars);
+
+function filterCars(){
+
+let searchText = searchInput.value.toLowerCase();
+let maxPrice = Number(priceSlider.value);
+
+cars.forEach(car=>{
+
+let title = car.querySelector(".car-title").textContent.toLowerCase();
+let price = Number(car.getAttribute("data-price"));
+
+if(title.includes(searchText) && price <= maxPrice){
+car.style.display="";
+}else{
+car.style.display="none";
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

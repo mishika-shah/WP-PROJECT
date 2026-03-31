@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -27,7 +26,6 @@ overflow:hidden;
 }
 
 /* BACKGROUND GLOW */
-
 .bg-glow{
 position:absolute;
 width:600px;
@@ -39,7 +37,6 @@ z-index:0;
 }
 
 /* PRODUCT CONTAINER */
-
 .product-container{
 width:90%;
 max-width:1200px;
@@ -55,7 +52,6 @@ z-index:2;
 }
 
 /* IMAGE */
-
 .product-image{
 background:#000;
 display:flex;
@@ -73,9 +69,8 @@ box-shadow:0 0 40px rgba(0,224,255,0.4);
 }
 
 /* DETAILS */
-
 .product-details{
-padding:45px;
+padding:40px; /* slightly reduced */
 display:flex;
 flex-direction:column;
 gap:18px;
@@ -95,6 +90,7 @@ letter-spacing:1px;
 text-transform:uppercase;
 }
 
+/* PRICE */
 .price-box{
 display:flex;
 align-items:center;
@@ -108,8 +104,12 @@ font-weight:700;
 color:#00ff9c;
 }
 
-/* TAGS */
+.emi{
+font-size:14px;
+color:#ccc;
+}
 
+/* TAGS */
 .tags{
 display:flex;
 gap:12px;
@@ -123,10 +123,10 @@ border:1px solid #00e0ff;
 color:#00e0ff;
 font-size:12px;
 text-transform:uppercase;
+box-shadow:0 0 10px rgba(0,224,255,0.4);
 }
 
 /* DESCRIPTION */
-
 .desc{
 font-size:14px;
 color:#ccc;
@@ -134,7 +134,6 @@ line-height:1.7;
 }
 
 /* SPECS */
-
 .specs{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -147,6 +146,7 @@ background:#0b0f14;
 border-radius:12px;
 padding:12px 14px;
 border:1px solid rgba(0,224,255,0.5);
+box-shadow:0 0 15px rgba(0,224,255,0.25);
 }
 
 .spec-title{
@@ -162,7 +162,6 @@ color:#fff;
 }
 
 /* BUTTONS */
-
 .cta-box{
 margin-top:20px;
 display:flex;
@@ -179,28 +178,42 @@ color:#00e0ff;
 font-size:16px;
 font-weight:700;
 cursor:pointer;
+box-shadow:0 0 30px rgba(0,224,255,0.5);
 transition:0.3s;
 }
 
 .demo-btn:hover{
 background:#00e0ff;
 color:#05070a;
+box-shadow:0 0 45px rgba(0,224,255,0.9);
+}
+
+.wishlist-btn{
+padding:16px 22px;
+border-radius:50%;
+border:2px solid #00e0ff;
+background:transparent;
+color:#00e0ff;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(0,224,255,0.5);
+transition:0.3s;
+}
+
+.wishlist-btn:hover{
+background:#00e0ff;
+color:#05070a;
 }
 
 /* RESPONSIVE */
-
 @media(max-width:900px){
-
 .product-container{
 grid-template-columns:1fr;
 }
-
 .product-details{
 padding:30px;
 }
-
 }
-
 </style>
 </head>
 
@@ -211,13 +224,11 @@ padding:30px;
 <div class="product-container">
 
 <!-- IMAGE -->
-
 <div class="product-image">
 <img src="grecale.jpg" alt="Maserati Grecale">
 </div>
 
 <!-- DETAILS -->
-
 <div class="product-details">
 
 <div class="subtitle">Luxury Performance SUV • Maserati</div>
@@ -226,6 +237,7 @@ padding:30px;
 
 <div class="price-box">
 <div class="price">₹1.31 Cr – ₹2.05 Cr</div>
+<div class="emi">EMI available on request</div>
 </div>
 
 <div class="tags">
@@ -238,12 +250,10 @@ padding:30px;
 <div class="desc">
 The Maserati Grecale is a luxury performance SUV that blends Italian elegance with thrilling driving dynamics. 
 Powered by advanced turbocharged engines and equipped with all-wheel drive, the Grecale offers a perfect 
-balance of performance, technology, and comfort. With its iconic Maserati design, premium interior and 
-cutting-edge infotainment system, the Grecale represents Maserati's modern vision of luxury SUVs.
+balance of performance, technology, and comfort.
 </div>
 
 <!-- SPECS -->
-
 <div class="specs">
 
 <div class="spec-box">
@@ -278,10 +288,10 @@ cutting-edge infotainment system, the Grecale represents Maserati's modern visio
 
 </div>
 
-<!-- BUTTON -->
-
+<!-- BUTTONS -->
 <div class="cta-box">
 <button class="demo-btn">Book Test Drive</button>
+<button class="wishlist-btn">❤</button>
 </div>
 
 </div>
