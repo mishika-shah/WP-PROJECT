@@ -22,6 +22,18 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+// TestDrive schema
+const testDriveSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  date: { type: String, required: true },
+  time: { type: String, required: true },
+  car: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
+
+const TestDrive = mongoose.model('TestDrive', testDriveSchema);
 // Signup endpoint
 app.post('/signup', async (req, res) => {
   const { name, email, username, password } = req.body;
@@ -56,6 +68,21 @@ app.post('/login', async (req, res) => {
     // Generate JWT token
     const token = jwt.sign({ username }, 'your_jwt_secret', { expiresIn: '1h' });
     res.json({ message: 'Login successful.', token });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+// Test drive booking endpoint
+app.post('/testdrive', async (req, res) => {
+  const { name, email, phone, date, time, car } = req.body;
+  if (!name || !email || !phone || !date || !time || !car) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
+  try {
+    const newTestDrive = new TestDrive({ name, email, phone, date, time, car });
+    await newTestDrive.save();
+    res.status(201).json({ message: 'Test drive request submitted.' });
   } catch (err) {
     res.status(500).json({ message: 'Server error.' });
   }
