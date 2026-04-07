@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Test Drive | Volkswagen Taigun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{
+  background:radial-gradient(circle at top,#0a0f1f,#05070a);
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.testdrive-container{
+  display:flex;
+  background:rgba(10,15,30,0.92);
+  border-radius:22px;
+  box-shadow:0 0 65px rgba(0,224,255,0.25);
+  border:2.5px solid #00e0ff;
+  overflow:hidden;
+  max-width:900px;
+  width:100%;
+}
+.car-photo{
+  flex:1.2;
+  min-width:340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#000;
+  position:relative;
+}
+.car-photo img{
+  width:100%;
+  max-width:420px;
+  max-height:480px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 0 40px rgba(0,224,255,0.4);
+}
+.form-section{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(10,15,30,0.88);
+  padding:48px 36px;
+}
+.form-box{
+  width:100%;
+  max-width:340px;
+  background:transparent;
+  border-radius:18px;
+  text-align:center;
+}
+.form-box h2{
+  color:#00e0ff;
+  margin-bottom:28px;
+  font-size:26px;
+  letter-spacing:1.2px;
+}
+.input-group{
+  text-align:left;
+  margin-bottom:20px;
+}
+.input-group label{
+  font-size:15px;
+  color:#00e0ff;
+  letter-spacing:1px;
+}
+.input-group input, .input-group select{
+  width:100%;
+  padding:13px;
+  margin-top:8px;
+  border-radius:12px;
+  border:1.3px solid rgba(0,224,255,0.45);
+  background:#05070a;
+  color:white;
+  outline:none;
+  font-size:16px;
+  box-shadow:inset 0 0 12px rgba(0,224,255,0.18);
+}
+.input-group input:focus, .input-group select:focus{
+  box-shadow:0 0 18px rgba(0,224,255,0.8);
+  border:1.5px solid #00e0ff;
+}
+.testdrive-btn{
+  width:100%;
+  padding:15px;
+  margin-top:12px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,#00e0ff,#0077ff);
+  color:black;
+  font-weight:800;
+  letter-spacing:1.2px;
+  cursor:pointer;
+  transition:0.3s;
+  font-size:16px;
+  box-shadow:0 0 35px rgba(0,224,255,0.65);
+}
+.testdrive-btn:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 55px rgba(0,224,255,0.95);
+}
+@media(max-width:900px){
+  .testdrive-container{flex-direction:column;}
+  .car-photo{min-width:100%;}
+  .form-section{padding:32px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="testdrive-container">
+  <!-- Car Photo -->
+  <div class="car-photo">
+    <img src="../../Volkswagen/Suv/taigun.jpg" alt="Volkswagen Taigun">
+  </div>
+  <!-- Form Section -->
+  <div class="form-section">
+    <form class="form-box" id="testDriveForm" autocomplete="off">
+      <h2>Book Test Drive</h2>
+      <div class="input-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit number" pattern="[0-9]{10}" required>
+      </div>
+      <div class="input-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="input-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+      <button type="submit" class="testdrive-btn">Submit Request</button>
+    </form>
+  </div>
+</div>
+<script>
+document.getElementById('testDriveForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    date: form.date.value,
+    time: form.time.value,
+    car: "Volkswagen Taigun GT Plus"
+  };
+  try {
+    const res = await fetch('http://localhost:3000/testdrive', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if(res.ok) {
+      alert('Test drive request submitted! Our team will contact you soon.');
+      form.reset();
+    } else {
+      alert('Failed to submit request. Please try again.');
+    }
+  } catch(err) {
+    alert('Error connecting to server.');
+  }
+});
+</script>
+</body>
+</html>

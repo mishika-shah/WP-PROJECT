@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AutoSphere | Lexus RX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{
+background:#05070a;
+color:#fff;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.bg-glow{
+position:absolute;
+width:600px;height:600px;
+background:#00e0ff;
+filter:blur(180px);
+opacity:0.15;
+z-index:0;
+}
+
+.product-container{
+width:90%;
+max-width:1200px;
+background:linear-gradient(180deg,#0b0f14,#070b10);
+border-radius:28px;
+box-shadow:0 0 80px rgba(0,224,255,0.25);
+border:1.5px solid rgba(0,224,255,0.6);
+display:grid;
+grid-template-columns:1fr 1fr;
+overflow:hidden;
+position:relative;
+z-index:2;
+}
+
+.product-image{
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.product-image img{
+width:100%;
+max-height:500px;
+object-fit:cover;
+border-radius:18px;
+box-shadow:0 0 40px rgba(0,224,255,0.4);
+}
+
+.product-details{
+padding:45px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.product-title{
+font-size:34px;
+color:#00e0ff;
+text-shadow:0 0 15px rgba(0,224,255,0.7);
+font-weight:800;
+}
+
+.subtitle{
+color:#9bdfff;
+font-size:15px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.price{
+font-size:28px;
+font-weight:700;
+color:#00ff9c;
+}
+
+.tags{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.tag{
+padding:6px 14px;
+border-radius:20px;
+border:1px solid #00e0ff;
+color:#00e0ff;
+font-size:12px;
+}
+
+.desc{
+font-size:14px;
+color:#ccc;
+line-height:1.7;
+}
+
+.specs{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.spec-box{
+background:#0b0f14;
+border-radius:12px;
+padding:12px 14px;
+border:1px solid rgba(0,224,255,0.5);
+}
+
+.spec-title{
+font-size:11px;
+color:#9bdfff;
+}
+
+.spec-value{
+font-size:15px;
+font-weight:600;
+}
+
+.cta-box{
+margin-top:20px;
+display:flex;
+gap:18px;
+}
+
+.demo-btn{
+flex:1;
+padding:16px;
+border-radius:40px;
+border:2px solid #00e0ff;
+background:rgba(0,224,255,0.08);
+color:#00e0ff;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="product-container">
+
+<div class="product-image">
+<img src="lsuv3.jpg" alt="Lexus NX">
+</div>
+
+<div class="product-details">
+
+<div class="subtitle">Premium Hybrid SUV • Lexus</div>
+<div class="product-title">Lexus RX</div>
+
+<div class="price">₹95,00,000</div>
+
+<div class="tags">
+<div class="tag">Hybrid</div>
+<div class="tag">Automatic</div>
+<div class="tag">Luxury SUV</div>
+</div>
+
+<div class="desc">
+The Lexus NX is a luxury hybrid SUV designed for efficiency, performance, and comfort. It features advanced safety technologies, premium interiors, and smooth hybrid power delivery ideal for modern urban driving.
+</div>
+
+<div class="specs">
+<div class="spec-box"><div class="spec-title">Fuel Type</div><div class="spec-value">Hybrid</div></div>
+<div class="spec-box"><div class="spec-title">Warranty</div><div class="spec-value">3 Years (Extendable to 5)</div></div>
+<div class="spec-box"><div class="spec-title">Insurance</div><div class="spec-value">~₹3L</div></div>
+<div class="spec-box"><div class="spec-title">Service</div><div class="spec-value">₹45k/year</div></div>
+<div class="spec-box"><div class="spec-title">Features</div><div class="spec-value">ADAS, Ventilated Seats</div></div>
+<div class="spec-box"><div class="spec-title">Safety</div><div class="spec-value">5-Star Luxury Safety</div></div>
+</div>
+
+<div class="cta-box">
+<button class="demo-btn">Book Test Drive</button>
+</div>
+
+</div>
+</div>
+</body>
+</html>
