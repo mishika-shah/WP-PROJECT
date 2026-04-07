@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Book Test Drive | Volkswagen Tiagun</title>
+<title>Book Test Drive | BMW 5 Series Sedan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -118,7 +118,7 @@ body{
 <div class="testdrive-container">
   <!-- Car Photo -->
   <div class="car-photo">
-    <img src="Tiguan.jpg" alt="Volkswagen Tiguan">
+    <img src="sedan2.jpg" alt="  BMW 5 Series Sedan">
   </div>
   <!-- Form Section -->
   <div class="form-section">
@@ -158,7 +158,7 @@ document.getElementById('testDriveForm').addEventListener('submit', async functi
     phone: form.phone.value,
     date: form.date.value,
     time: form.time.value,
-    car: "Volkswagen Tiguan"
+    car: "BMW 5 Series Sedan"
   };
   try {
     const res = await fetch('http://localhost:3000/testdrive', {
