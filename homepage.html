@@ -8,7 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+a{
+text-decoration:none;
+color:inherit;
+}
+
+a:visited{
+color:inherit;
+}
+
+a:hover{
+color:inherit;
+}
 
 body{
 background:#05070a;
@@ -110,12 +122,12 @@ color:#00e0ff;
 text-shadow:0 0 15px rgba(0,224,255,0.7);
 }
 
-/* 🔥 BRAND SECTION UPDATED */
+/* BRAND */
 .brand-section{
 width:90%;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(3, 1fr); /* 3 per row */
+grid-template-columns:repeat(3, 1fr);
 gap:40px;
 }
 
@@ -131,6 +143,7 @@ min-height:220px;
 display:flex;
 flex-direction:column;
 justify-content:center;
+cursor:pointer;
 }
 
 .brand-card:hover{
@@ -166,6 +179,7 @@ padding:25px;
 text-align:center;
 border:1px solid #00e0ff;
 box-shadow:0 0 25px rgba(0,224,255,0.3);
+cursor:pointer;
 }
 
 .card img{
@@ -195,9 +209,9 @@ color:#666;
 <div class="logo">AutoSphere</div>
 
 <div class="nav-links">
-<div class="nav-item">Home</div>
+<a href="homepage.html"><div class="nav-item">Home</div></a>
 <a href="brands.html"><div class="nav-item">Brands</div></a>
-<div class="nav-item">New Cars</div>
+<a href="emical.html"><div class="nav-item">EMI Calculator</div></a>
 <a href="compare.html"><div class="nav-item">Compare</div></a>
 <a href="aboutus.html"><div class="nav-item">About Us</div></a>
 </div>
@@ -209,24 +223,37 @@ color:#666;
 
 <!-- HERO -->
 <div class="hero-slider">
-<img id="sliderImage" src="ad1.jpg"> <!-- 🔥 PUT YOUR IMAGE -->
+<img id="sliderImage" src="ad1.png"> 
 </div>
 
 <!-- BRANDS -->
-<div class="section-title">Explore Brands</div>
+<div class="section-title"><b>Explore Brands</b></div>
 <div class="brand-section" id="brandSection"></div>
 
 <!-- TRENDING -->
-<div class="section-title">Trending Cars</div>
+<div class="section-title"><b>Trending Cars</b></div>
 <div class="trending">
+
+<a href="BMW/CONVERTIBLE/convertible2.html">
 <div class="card"><img src="BMW/CONVERTIBLE/conv2.webp"><h3>BMW M5</h3></div>
+</a>
+
+<a href="Volkswagen/Sedan/virtus.html">
 <div class="card"><img src="Volkswagen/Sedan/Virtus.jpg"><h3>Volkswagen Virtus</h3></div>
+</a>
+
+<a href="MASERATI/mase1/grecale.html">
 <div class="card"><img src="MASERATI/mase1/grecale.jpg"><h3>Maserati Grecale</h3></div>
+</a>
+
+<a href="Skoda/SUV/kodiaq.html">
 <div class="card"><img src="Skoda/SUV/Kodiaq.jpg"><h3>Skoda Kodiaq</h3></div>
+</a>
+
 </div>
 
 <!-- WHY -->
-<div class="section-title">Why AutoSphere?</div>
+<div class="section-title"><b>Why AutoSphere?</b></div>
 <div class="why">
 <div class="card"><h3>Verified Listings</h3><p>Trusted vehicles</p></div>
 <div class="card"><h3>AI Smart Search</h3><p>Intelligent discovery</p></div>
@@ -235,7 +262,7 @@ color:#666;
 </div>
 
 <!-- STATS -->
-<div class="section-title">AutoSphere in Numbers</div>
+<div class="section-title"><b>AutoSphere in Numbers</b></div>
 <div class="stats" id="statsSection">
 <div class="card stat-box"><h2 class="counter" data-target="1000">0</h2><p>Cars Listed</p></div>
 <div class="card stat-box"><h2 class="counter" data-target="50">0</h2><p>Dealers</p></div>
@@ -267,13 +294,8 @@ showProfileMenu(user);
 window.addEventListener('DOMContentLoaded',checkAuthAndShowProfile);
 
 
-/* 🔥 SLIDER IMAGES (PUT YOUR OWN HERE) */
-const images=[
-"ad1.jpg",
-"ad2.webp",
-"ad3.avif"
-];
-
+/* SLIDER */
+const images=["ad1.jpg","ad2.webp","ad3.avif"];
 let index=0;
 const slider=document.getElementById("sliderImage");
 
@@ -286,29 +308,27 @@ slider.style.opacity=1;
 },500);
 },7000);
 
-
-/* BRANDS */
 const brands=[
-{name:"BMW",img:"bmw_logo.webp"},
-{name:"Maserati",img:"maserati_logo.png"},
-{name:"Lexus",img:"lexus_logo.jpg"},
-{name:"Mercedes",img:"mercedes_logo.png"},
-{name:"Skoda",img:"skoda_logo.jpg"},
-{name:"Volkswagen",img:"volkswagen_logo.jpg"}
+{name:"BMW",img:"bmw_logo.webp",link:"BMW/bmw.html"},
+{name:"Maserati",img:"maserati_logo.png",link:"MASERATI/maserati.html"},
+{name:"Lexus",img:"lexus_logo.jpg",link:"LEXUS/lexus.html"},
+{name:"Mercedes",img:"mercedes_logo.png",link:"MERCEDES/mercedes.html"},
+{name:"Skoda",img:"skoda_logo.jpg",link:"SKODA/skoda.html"},
+{name:"Volkswagen",img:"volkswagen_logo.jpg",link:"Volkswagen/volkswagen.html"}
 ];
 
 const brandSection=document.getElementById("brandSection");
 
 brands.forEach(brand=>{
 brandSection.innerHTML+=`
+<a href="${brand.link}">
 <div class="brand-card">
 <img src="${brand.img}">
 <h3>${brand.name}</h3>
-</div>`;
+</div>
+</a>`;
 });
 
-
-/* SCROLL COUNTER */
 const counters=document.querySelectorAll('.counter');
 
 function runCounter(){

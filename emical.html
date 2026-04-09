@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EMI Calculator | AutoSphere</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0f1f, #0d1b2a);
+    color: white;
+}
+
+/* NAVBAR (FROM YOUR HOMEPAGE) */
+.navbar{
+width:100%;
+padding:15px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,15,25,0.9);
+backdrop-filter:blur(10px);
+position:fixed;
+top:0;
+z-index:1000;
+border-bottom:1px solid #00e0ff;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#00e0ff;
+letter-spacing:2px;
+text-shadow:0 0 15px rgba(0,224,255,0.8);
+}
+
+.nav-links{
+flex:1;
+display:flex;
+justify-content:space-evenly;
+}
+
+.nav-item{
+font-size:15px;
+font-weight:600;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#e6faff;
+cursor:pointer;
+}
+
+.nav-item:hover{
+color:#00e0ff;
+text-shadow:0 0 10px rgba(0,224,255,0.8);
+}
+
+.profile{
+padding:10px 18px;
+border:2px solid #00e0ff;
+border-radius:25px;
+font-size:14px;
+font-weight:600;
+color:#00e0ff;
+cursor:pointer;
+}
+
+/* MAIN */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 60px;
+}
+
+/* CARD */
+.card {
+    background: rgba(20, 25, 45, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    width: 500px;
+    box-shadow: 0 0 40px rgba(76, 201, 240, 0.2);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4cc9f0;
+    font-size: 28px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 14px;
+    color: #aaa;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: none;
+    background: #1b263b;
+    color: white;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #4cc9f0;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    color: #0a0f1f;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #72dbff;
+}
+
+/* RESULT */
+.result-box {
+    margin-top: 25px;
+    background: #1b263b;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    text-align: center;
+    animation: popUp 0.6s ease;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.result-box h3 {
+    color: #4cc9f0;
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.big-emi {
+    font-size: 30px;
+    font-weight: bold;
+    color: #72dbff;
+    margin: 15px 0;
+}
+
+.bar-container {
+    margin-top: 15px;
+}
+
+.bar {
+    height: 12px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.principal {
+    background: #4cc9f0;
+}
+
+.interest {
+    background: #3a506b;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ✅ YOUR NAVBAR -->
+<div class="navbar">
+<div class="logo">AutoSphere</div>
+
+<div class="nav-links">
+<a href="homepage.html"><div class="nav-item">Home</div></a>
+<a href="brands.html"><div class="nav-item">Brands</div></a>
+<a href="emical.html"><div class="nav-item">EMI Calculator</div></a>
+<a href="compare.html"><div class="nav-item">Compare</div></a>
+<a href="aboutus.html"><div class="nav-item">About Us</div></a>
+</div>
+
+<div id="profile-container">
+<a href="login.html"><div class="profile">Login / Sign Up</div></a>
+</div>
+</div>
+
+<!-- EMI SECTION -->
+<div class="container">
+    <div class="card">
+
+        <h2>EMI Calculator</h2>
+
+        <div class="input-group">
+            <label>Loan Amount (₹)</label>
+            <input type="number" id="amount" value="800000">
+        </div>
+
+        <div class="input-group">
+            <label>Interest Rate (%)</label>
+            <input type="number" id="rate" value="8.5">
+        </div>
+
+        <div class="input-group">
+            <label>Time (Years)</label>
+            <input type="number" id="time" value="5">
+        </div>
+
+        <button onclick="calculateEMI()">Calculate EMI</button>
+
+        <div class="result-box" id="resultBox">
+
+            <h3>🎉 Your Monthly EMI</h3>
+            <div class="big-emi">₹ <span id="emi"></span></div>
+
+            <p>Total Payment: ₹ <span id="total"></span></p>
+            <p>Total Interest: ₹ <span id="interest"></span></p>
+
+            <div class="bar-container">
+                <div class="bar principal" id="principalBar"></div>
+                <div class="bar interest" id="interestBar"></div>
+            </div>
+
+            <p style="margin-top:15px; color:#aaa;">
+                💡 Smart choice! Plan your finances wisely 🚗
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+function calculateEMI() {
+
+    let P = parseFloat(document.getElementById("amount").value);
+    let annualRate = parseFloat(document.getElementById("rate").value);
+    let years = parseFloat(document.getElementById("time").value);
+
+    let R = annualRate / 12 / 100;
+    let N = years * 12;
+
+    let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+
+    let total = EMI * N;
+    let interest = total - P;
+
+    document.getElementById("emi").innerText = EMI.toFixed(0);
+    document.getElementById("total").innerText = total.toFixed(0);
+    document.getElementById("interest").innerText = interest.toFixed(0);
+
+    document.getElementById("resultBox").style.display = "block";
+
+    let principalPercent = (P / total) * 100;
+    let interestPercent = (interest / total) * 100;
+
+    document.getElementById("principalBar").style.width = principalPercent + "%";
+    document.getElementById("interestBar").style.width = interestPercent + "%";
+}
+</script>
+
+</body>
+</html>

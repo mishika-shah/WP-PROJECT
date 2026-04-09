@@ -197,13 +197,35 @@ body{
     padding:30px;
   }
 }
+.back-btn{
+position:absolute;
+top:25px;
+left:25px;
+padding:10px 18px;
+border-radius:30px;
+border:1.5px solid #00e0ff;
+background:rgba(0,224,255,0.08);
+color:#00e0ff;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+z-index:10;
+transition:0.3s;
+backdrop-filter:blur(6px);
+}
+
+.back-btn:hover{
+background:#00e0ff;
+color:#05070a;
+box-shadow:0 0 12px rgba(0,224,255,0.7);
+}
 </style>
 </head>
 
 <body>
-
+<button class="back-btn" onclick="window.location.href='../Mercedes.html'">← Back</button>
 <div class="bg-glow"></div>
-
+<div class="bg-glow"></div>
 <div class="product-container">
 
   <!-- LEFT IMAGE -->
@@ -273,8 +295,9 @@ body{
 
     <!-- CTA -->
     <div class="cta-box">
-      <button class="demo-btn">Book Test Drive</button>
-      <button class="wishlist-btn">❤</button>
+<button class="demo-btn" onclick="window.location.href='testdrive-gclass.html'">
+    Book Test Drive
+</button>
     </div>
 
   </div>
