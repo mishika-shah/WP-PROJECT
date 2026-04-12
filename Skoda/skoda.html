@@ -19,7 +19,8 @@ font-family:'Montserrat',sans-serif;
 body{
 background:#05070a;
 color:white;
-padding:60px 6%;
+padding:0 6%;
+padding-top:110px;
 position:relative;
 }
 
@@ -35,6 +36,73 @@ opacity:0.12;
 z-index:-1;
 }
 
+/* NAVBAR */
+.navbar{
+    width:100%;
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,15,25,0.9);
+    backdrop-filter:blur(10px);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    border-bottom:1px solid #00e0ff;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#00e0ff;
+    letter-spacing:2px;
+    text-shadow:0 0 15px rgba(0,224,255,0.8);
+}
+
+.nav-links{
+    flex:1;
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.nav-item{
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#e6faff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.nav-item:hover{
+    color:#00e0ff;
+    text-shadow:0 0 10px rgba(0,224,255,0.8);
+}
+
+.profile{
+    padding:10px 18px;
+    border:2px solid #00e0ff;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:600;
+    color:#00e0ff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.profile:hover{
+    background:#00e0ff;
+    color:#05070a;
+}
+
+/* TITLE */
 .page-title{
 text-align:center;
 margin-bottom:60px;
@@ -51,6 +119,7 @@ color:#aaa;
 margin-top:10px;
 }
 
+/* FILTERS */
 .filters{
 display:flex;
 justify-content:center;
@@ -92,6 +161,7 @@ accent-color:#00e0ff;
 cursor:pointer;
 }
 
+/* GRID */
 .car-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,300px);
@@ -99,6 +169,7 @@ gap:40px;
 justify-content:center;
 }
 
+/* CARD */
 .car-card{
 background:linear-gradient(180deg,#0b0f14,#070b10);
 border-radius:20px;
@@ -168,6 +239,23 @@ color:#05070a;
 
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">AutoSphere</div>
+
+    <div class="nav-links">
+        <a href="../homepage.html"><div class="nav-item">Home</div></a>
+        <a href="../brands.html"><div class="nav-item">Brands</div></a>
+        <a href="../emical.html"><div class="nav-item">EMI Calculator</div></a>
+        <a href="../compare.html"><div class="nav-item">Compare</div></a>
+        <a href="../aboutus.html"><div class="nav-item">About Us</div></a>
+    </div>
+
+    <div id="profile-container">
+        <a href="../login.html"><div class="profile">Login / Sign Up</div></a>
+    </div>
+</div>
+
 <div class="page-title">
 <h1>Skoda Collection</h1>
 <p>Explore the finest Skoda vehicles available at AutoSphere</p>
@@ -178,7 +266,7 @@ color:#05070a;
 <input type="text" id="searchInput" placeholder="Search Skoda models...">
 
 <div class="price-filter">
-<label>Max Price: ₹ <span id="priceValue">50</span>L</label>
+<label>Max Price: ₹ <span id="priceValue">50</span></label>
 <input type="range" id="priceSlider" min="10" max="50" value="50">
 </div>
 
@@ -240,8 +328,15 @@ const priceSlider = document.getElementById("priceSlider");
 const priceValue = document.getElementById("priceValue");
 const cars = document.querySelectorAll(".car-card");
 
+function formatPrice(val){
+    if(val >= 100){
+        return (val/100).toFixed(2).replace(/\.00$/,'') + " Cr";
+    }
+    return val + " L";
+}
+
 priceSlider.oninput = function(){
-priceValue.textContent = this.value;
+priceValue.textContent = formatPrice(this.value);
 filterCars();
 }
 
@@ -266,6 +361,8 @@ car.style.display="none";
 });
 
 }
+
+priceValue.textContent = formatPrice(priceSlider.value);
 
 </script>
 

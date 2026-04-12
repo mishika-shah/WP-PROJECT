@@ -96,21 +96,25 @@ cursor:pointer;
 
 /* HERO */
 .hero-slider{
-margin-top:90px;
-width:90%;
-height:420px;
-margin-left:auto;
-margin-right:auto;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 0 50px rgba(0,224,255,0.4);
+    margin-top:90px;
+    width:85%;              /* slightly smaller = more premium look */
+    height:400px;           /* reduced height to match banner */
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 50px rgba(0,224,255,0.4);
+
+    display:flex;              /* ✅ ADD THIS */
+    justify-content:center;    /* ✅ CENTER HORIZONTALLY */
+    align-items:center;  
 }
 
 .hero-slider img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:1s ease-in-out;
+    width:80%;
+    height:100%;
+    transition:1s ease-in-out;
+    background: #666;
 }
 
 /* SECTION TITLE */
@@ -132,7 +136,7 @@ gap:40px;
 }
 
 .brand-card{
-background:#0b0f14;
+background:#17181b;
 border-radius:20px;
 padding:35px;
 text-align:center;
@@ -153,7 +157,7 @@ box-shadow:0 0 60px rgba(0,224,255,1);
 
 .brand-card img{
 width:100%;
-height:140px;
+height:180px;
 object-fit:contain;
 margin-bottom:15px;
 }
@@ -223,7 +227,7 @@ color:#666;
 
 <!-- HERO -->
 <div class="hero-slider">
-<img id="sliderImage" src="ad1.png"> 
+<img id="sliderImage" src="ad2.png"> 
 </div>
 
 <!-- BRANDS -->
@@ -295,7 +299,7 @@ window.addEventListener('DOMContentLoaded',checkAuthAndShowProfile);
 
 
 /* SLIDER */
-const images=["ad1.jpg","ad2.webp","ad3.avif"];
+const images=["ad1.png","ad2.png","ad3.png"];
 let index=0;
 const slider=document.getElementById("sliderImage");
 
@@ -309,12 +313,12 @@ slider.style.opacity=1;
 },7000);
 
 const brands=[
-{name:"BMW",img:"bmw_logo.webp",link:"BMW/bmw.html"},
+{name:"BMW",img:"bmw_logo.png",link:"BMW/bmw.html"},
 {name:"Maserati",img:"maserati_logo.png",link:"MASERATI/maserati.html"},
-{name:"Lexus",img:"lexus_logo.jpg",link:"LEXUS/lexus.html"},
+{name:"Lexus",img:"lexus_logo.png",link:"LEXUS/lexus.html"},
 {name:"Mercedes",img:"mercedes_logo.png",link:"MERCEDES/mercedes.html"},
-{name:"Skoda",img:"skoda_logo.jpg",link:"SKODA/skoda.html"},
-{name:"Volkswagen",img:"volkswagen_logo.jpg",link:"Volkswagen/volkswagen.html"}
+{name:"Skoda",img:"skoda_logo.png",link:"SKODA/skoda.html"},
+{name:"Volkswagen",img:"volkswagen_logo.png",link:"Volkswagen/volkswagen.html"}
 ];
 
 const brandSection=document.getElementById("brandSection");
